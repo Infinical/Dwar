@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,19 +8,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter layout demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primaryColor: Colors.white,
-      ),
       home: HomePage(),
     );
   }
@@ -31,7 +19,12 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Dwar'),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        title: const Text(
+          'Dwar',
+          style: TextStyle(color: Colors.black),
+        ),
         leading: IconButton(
           icon: const Icon(
             Icons.menu,
@@ -48,6 +41,48 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.fromLTRB(40.0, 20.0, 0.0, 0.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      'Hello, Calvin!',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 56.0,
+                          fontFamily: 'NanumGothic'),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 600.0,
+              height: 300.0,
+              
+              child: const Card(
+                margin: EdgeInsets.fromLTRB(80.0, 40.0, 0.0, 0.0),
+                elevation: 0,
+                color: Colors.black,
+                child: ListTile(
+                  title: Text(
+                    'Calvin Mokua',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 56.0,
+                        fontFamily: 'NanumGothic'),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
